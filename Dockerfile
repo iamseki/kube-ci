@@ -11,11 +11,11 @@ RUN  apk add curl && curl -LO -o usr/bin/kubectl "https://storage.googleapis.com
 chmod +x kubectl
 
 # Setting kubeconfig properly
-# if this envs was provided the kubeconfig will be mounted based on a config downloaded
-# from some cloud proider
+# if these environment variables were provided, the kubeconfig will be yield based on a config downloaded from some cloud provider
+
 ARG CONFIG_FILE_URL
 ARG CONFIG_PROVIDER
-# otherwise will be mounted with kubeconfig in root folder 
+# otherwise will use the kubeconfig in root folder 
 RUN ./kube-ci --config
 
 # Final image layer
