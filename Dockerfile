@@ -15,7 +15,7 @@ chmod +x kubectl
 # from some cloud proider
 ARG CONFIG_FILE_URL
 ARG CONFIG_PROVIDER
-# otherwise will be mounted with cat /app/kubeconfig >> /.kube/config file 
+# otherwise will be mounted with kubeconfig in root folder 
 RUN ./kube-ci --config
 
 # Final image layer
@@ -23,7 +23,7 @@ FROM alpine
 
 WORKDIR /root
 
-COPY --from=builder-installer /app/kube-ci /app/kubectl /usr/bin/ 
+COPY --from=builder-installer /app/kube-ci /app/kubectl /usr/bin/
 COPY --from=builder-installer /app/kubeconfig .kube/config
 
 #ENTRYPOINT ["kube-ci"]
