@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Auth struct responsible for authenticate into cloud provider
 type Auth struct {
 }
 

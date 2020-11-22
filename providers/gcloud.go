@@ -2,7 +2,8 @@ package providers
 
 import "log"
 
-type GCP struct{}
+type GCP struct {
+}
 
 func (a *GCP) Authenticate() {
 	log.Println("GCP Provider Authentication")
