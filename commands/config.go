@@ -3,7 +3,6 @@ package commands
 import (
 	"log"
 	"os"
-	"os/exec"
 )
 
 // Config struct represents a configuration object
@@ -19,13 +18,13 @@ func (c *Config) Run() {
 		log.Println(configFileURL)
 		log.Println(configProvider)
 		// ensuring that is not kubeconfig file already in root folder
-		cmd := exec.Command("rm", "kubeconfig")
+		/*cmd := exec.Command("rm", "kubeconfig")
 		_, err := cmd.CombinedOutput()
 		if err != nil {
 			log.Fatalf("cmd.Run() failed with %s\n", err)
-		}
+		}*/
 		// then download it from some cloud provided storage
-		// *** implementation here *** //
+		// *** implementation here -- TODO *** //
 	} else {
 		log.Println("Getting config file from /app/kubeconfig ..")
 	}
